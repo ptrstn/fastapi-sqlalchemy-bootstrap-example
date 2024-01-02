@@ -64,14 +64,26 @@ def test_create_item(test_client):
     item = {"title": "test name", "description": "test description"}
     response = test_client.post("/api/items/", json=item)
     assert response.status_code == 201
-    assert response.json() == item
+    content = response.json()
+    assert content["title"] == item["title"]
+    assert content["description"] == item["description"]
+    assert content["owner_id"] is None
+    assert content["id"] == 1
+
+
+def test_get_item(test_client):
+    item_id = 1
+    response = test_client.get(f"/api/items/{item_id}")
+    item = response.json()
+    assert item["title"] == "test name"
+    assert item["description"] == "test description"
+    assert item["owner_id"] is None
+    assert item["id"] == item_id
 
 
 def test_create_item_for_user(test_client):
-    response = test_client.get("/api/users")
-    content = response.json()
-    assert len(content) == 1
-    user = content[0]
+    response = test_client.get("/api/users/1")
+    user = response.json()
     expected_email = "test@example.com"
     assert user["email"] == expected_email
     user_id = user["id"]

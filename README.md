@@ -1,12 +1,12 @@
-[![Python package](https://github.com/ptrstn/fastapi-sqlalchemy-pytest-example/actions/workflows/python-package.yml/badge.svg)](https://github.com/ptrstn/fastapi-sqlalchemy-pytest-example/actions/workflows/python-package.yml)
-[![codecov](https://codecov.io/gh/ptrstn/fastapi-sqlalchemy-pytest-example/branch/master/graph/badge.svg)](https://codecov.io/gh/ptrstn/fastapi-sqlalchemy-pytest-example)
+[![Python package](https://github.com/ptrstn/fastapi-sqlalchemy-bootstrap-example/actions/workflows/python-package.yml/badge.svg)](https://github.com/ptrstn/fastapi-sqlalchemy-bootstrap-example/actions/workflows/python-package.yml)
+[![codecov](https://codecov.io/gh/ptrstn/fastapi-sqlalchemy-bootstrap-example/branch/master/graph/badge.svg)](https://codecov.io/gh/ptrstn/fastapi-sqlalchemy-pytest-example)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-darkblue.svg)](http://unlicense.org/)
 ![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
 
-# FastAPI + SQLAlchemy + Pytest Example Package
+# FastAPI + SQLAlchemy + Bootstrap + Pytest Example
 
-This application is a simple REST API built with FastAPI and SQLAlchemy and tested with pytest. 
+This application is a simple REST API built with FastAPI, SQLAlchemy and Bootstrap and tested with pytest. 
 It allows for basic operations for managing users and items.
 
 This code is in the public domain, so feel free to do with it whatever you want.
@@ -16,8 +16,8 @@ This code is in the public domain, so feel free to do with it whatever you want.
 Clone the repository and set up a virtual environment:
 
 ```bash
-git clone https://github.com/ptrstn/fastapi-sqlalchemy-pytest-example/
-cd fastapi-sqlalchemy-pytest-example
+git clone https://github.com/ptrstn/fastapi-sqlalchemy-bootstrap-example/
+cd fastapi-sqlalchemy-bootstrap-example
 python -m venv venv
 . venv/bin/activate
 ```

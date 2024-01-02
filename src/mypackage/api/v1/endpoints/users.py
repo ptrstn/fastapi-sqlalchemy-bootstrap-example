@@ -16,6 +16,12 @@ def read_users(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return users
 
 
+@router.get("/users/{user_id}", response_model=schemas.User)
+def get_item(user_id: int, db: Session = Depends(get_db)):
+    db_user = crud.get_user(db, user_id)
+    return db_user
+
+
 @router.post(
     "/users/",
     response_model=schemas.User,

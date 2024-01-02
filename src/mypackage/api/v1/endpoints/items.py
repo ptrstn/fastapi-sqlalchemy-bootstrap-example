@@ -15,8 +15,14 @@ def read_items(skip: int = 0, limit: int = 100, db: Session = Depends(database.g
     return items
 
 
+@router.get("/items/{item_id}", response_model=schemas.Item)
+def get_item(item_id: int, db: Session = Depends(database.get_db)):
+    item = crud.get_item(db, item_id)
+    return item
+
+
 @router.post(
-    "/items/", response_model=schemas.ItemCreate, status_code=status.HTTP_201_CREATED
+    "/items/", response_model=schemas.Item, status_code=status.HTTP_201_CREATED
 )
 def create_item(item: schemas.ItemCreate, db: Session = Depends(database.get_db)):
     db_item = crud.create_item(db, item)
