@@ -52,7 +52,7 @@ By default, docker-compose will look for files named docker-compose.yml in the p
 Get a shell inside the Docker container:
 
 ```bash
-docker exec -it my-container-name /bin/bash
+docker-compose exec web sh
 ```
 
 
