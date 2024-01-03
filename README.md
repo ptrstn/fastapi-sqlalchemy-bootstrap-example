@@ -36,18 +36,18 @@ uvicorn src.mypackage.main:app --reload
 
 ### Docker
 
-If you want to run the application with inside a Docker container you have two options.
+If you want to run the application inside a Docker container you have two options.
 
 #### docker-compose.yml
 
-With an applicable docker-compose.yml file in the project directory, you only need to run one command to build and start all the services:
+With an applicable ```docker-compose.yml``` file in the project directory, 
+you only need to run one command to build and start all the services:
 
 ```bash
 docker-compose up --build
 ```
 
-By default, docker-compose will look for files named docker-compose.yml in the project directory.
-
+By default, docker-compose will look for files named ```docker-compose.yml``` in the project directory.
 
 Get a shell inside the Docker container:
 
@@ -55,33 +55,25 @@ Get a shell inside the Docker container:
 docker-compose exec web sh
 ```
 
-
 #### Dockerfile
 
-Build the Docker image using the ```Dockerfile```. Replace my-image-name with the name you want to give to your Docker image.
+Build the Docker image using the ```Dockerfile```. Replace ```my-image-name``` with the name you want to give to your Docker image.
 
 ```bash
 docker build --tag my-image-name .
 ```
 
-Run the Docker image as a container. Replace my-image-name with the name of your Docker image. 
-This command will run your container and map port 80 in the container to port 80 on your host machine.
+Run the Docker image as a container. Replace ```my-image-name``` with the name of your Docker image. 
+This command will run your container and map port ```8080``` in the container to port ```80``` on your host machine.
 
 ```bash
 docker run --detach --name my-container-name --publish 80:8080 my-image-name
 ```
 
-To attach it use: 
+Optional: To attach it use: 
 
 ```bash
 docker attach my-container-name
-```
-
-To stop and remove the container do:
-
-```bash
-docker stop my-container-name
-docker rm my-container-name
 ```
 
 Get a shell inside the Docker container:
@@ -90,7 +82,12 @@ Get a shell inside the Docker container:
 docker exec -it my-container-name /bin/bash
 ```
 
+To stop and remove the container do:
 
+```bash
+docker stop my-container-name
+docker rm my-container-name
+```
 
 ## Endpoints
 
@@ -116,7 +113,6 @@ docker exec -it my-container-name /bin/bash
 
 
 For more details proceed to the built-in docs at http://127.0.0.1:8000/docs
-
 
 ## Testing
 
