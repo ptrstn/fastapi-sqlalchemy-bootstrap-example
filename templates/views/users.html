@@ -1,15 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Users{% endblock %}
 
 {% block content %}
-    <h1>Welcome to the Users Page</h1>
-    <div class="list-group">
-        {% for user in users %}
-        <a href="/api/users/{{ user.id }}" class="list-group-item list-group-item-action">
-            <h5 class="mb-1">{{ user.email }}</h5>
-            <small>Active:{{ user.is_active }}</small>
-        </a>
-        {% endfor %}
+<h1>Welcome to the Users Page</h1>
+
+<div class="list-group">
+    {% for user in users %}
+    <div class="list-group-item">
+        <h5 class="mb-1">{{ user.email }}</h5>
+        <small>Active: {{ user.is_active }}</small>
+
+        {% if user.items %}
+        <div class="list-group">
+            {% for item in user.items %}
+            <a href="/api/items/{{ item.id }}" class="list-group-item list-group-item-action list-group-item-primary"><strong>{{ item.title }}</strong> - {{ item.description }}</a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="mt-2 text-muted">No items found for this user.</div>
+        {% endif %}
+
+
     </div>
+    {% endfor %}
+</div>
 {% endblock %}
