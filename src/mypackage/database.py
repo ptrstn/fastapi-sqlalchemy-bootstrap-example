@@ -1,5 +1,3 @@
-import os
-
 from pydantic_settings import BaseSettings
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, DeclarativeBase, declarative_base
