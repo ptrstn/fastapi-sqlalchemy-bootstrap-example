@@ -1,0 +1,22 @@
+<form action="/submit-item" method="post" class="form-group">
+    <div class="mb-3">
+        <label for="title" class="form-label">Item Title:</label>
+        <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea class="form-control" id="description" name="description" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="user_id" class="form-label">User:</label>
+        <select class="form-select" id="user_id" name="user_id" required>
+            {% for user in users %}
+            <option value="{{ user.id }}">[{{ user.id }}] {{ user.email }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -51,3 +51,12 @@ def create_item_for_user(db: Session, user_id: int, item: schemas.ItemCreate):
     db.refresh(db_item)
 
     return db_item
+
+
+def delete_item(db: Session, item_id: int):
+    db_item = db.get(models.Item, item_id)
+    if db_item:
+        db.delete(db_item)
+        db.commit()
+    else:
+        raise NoResultFound(f"Item with id {item_id} not found")

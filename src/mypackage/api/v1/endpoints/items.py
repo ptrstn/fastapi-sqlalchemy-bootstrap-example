@@ -45,3 +45,12 @@ def create_item_for_user(
             detail=f"User with id '{user_id}' not found",
         )
     return db_item
+
+
+@router.delete("/items/{item_id}")
+async def delete_api_item(item_id: int, db: Session = Depends(database.get_db)):
+    try:
+        crud.delete_item(db=db, item_id=item_id)
+    except NoResultFound:
+        raise HTTPException(status_code=404, detail="Item not found")
+    return {"message": "Item deleted successfully"}
